@@ -7,7 +7,7 @@ namespace App\Model\Questionnaire;
 final readonly class QuestionnaireSubmission
 {
     public function __construct(
-        /** @var QuestionnaireSubmissionAnswer[] */
+        /** @var non-empty-array<QuestionnaireSubmissionAnswer> */
         public array $answers,
     ) {
     }
