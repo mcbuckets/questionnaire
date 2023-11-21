@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping"
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping
+                                      https://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+
+    <entity name="App\Entity\Questionnaire\QuestionnaireSubmission">
+        <id name="id" type="integer" column="id">
+            <generator strategy="AUTO"/>
+        </id>
+        <field name="internalId" type="string" column="internal_id" length="255"/>
+
+        <many-to-one field="questionnaire" target-entity="App\Entity\Questionnaire\Questionnaire">
+            <join-column name="questionnaire_id" referenced-column-name="id" nullable="false"/>
+        </many-to-one>
+        <field name="customerName" type="string" column="customer_name" length="255"/>
+        <field name="submittedAt" type="datetime_immutable" column="submitted_at"/>
+        <field name="recommendedProducts" type="json" column="recommended_products" nullable="true"/>
+    </entity>
+</doctrine-mapping>
